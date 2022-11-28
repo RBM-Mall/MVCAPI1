@@ -26,6 +26,7 @@
         {
             try
             {
+                addUserModel.Id = 0;
                 IAuthentication authentication = new AuthenticationAdapter();
                 var resp = authentication.AddUser();
 
