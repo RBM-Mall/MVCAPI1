@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web;
     using System.Web.Http;
 
@@ -17,18 +18,18 @@
     public class AuthenticationController : BaseController
     {
         /// <summary>
-        /// Add User Data
+        /// api use to add user
         /// </summary>
+        /// <param name="addUserModel"></param>
         /// <returns></returns>
         [HttpPost]
         [Route(Routes.AddUser)]
-        public IHttpActionResult AddUser(AddUserModel addUserModel)
+        public async Task<IHttpActionResult> AddUser(AddUserModel addUserModel)
         {
             try
             {
-                addUserModel.Id = 0;
                 IAuthentication authentication = new AuthenticationAdapter();
-                var resp = authentication.AddUser();
+                var resp = await authentication.AddUser();
 
                 return Ok(resp);
             }
@@ -45,7 +46,7 @@
         /// <returns></returns>
         [HttpPut]
         [Route(Routes.UpdateUser)]
-        public IHttpActionResult UpdateUser()
+        public async Task<IHttpActionResult> UpdateUser()
         {
             try
             {

@@ -5,10 +5,11 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
     using MindZoneConsultantAPI.Models;
 
     internal interface IAuthentication
     {
-       Task<BaseResponseModel> AddUser();
+      Task<BaseResponseModel<object>> AddUser();
     }
 }

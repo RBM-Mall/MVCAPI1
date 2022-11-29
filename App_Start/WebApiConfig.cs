@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
+using Newtonsoft.Json;
+
 namespace MindZoneConsultantAPI
 {
     public static class WebApiConfig
@@ -19,6 +21,8 @@ namespace MindZoneConsultantAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
         }
     }
 }

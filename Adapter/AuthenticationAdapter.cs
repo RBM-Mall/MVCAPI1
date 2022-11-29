@@ -10,24 +10,15 @@
 
     public class AuthenticationAdapter : BaseAdapter, IAuthentication
     {
-        public async Task<BaseResponseModel> AddUser()
+        public async Task<BaseResponseModel<object>> AddUser()
         {
             try
             {
-                return new BaseResponseModel()
-                {
-                    StatusCode = "TXN",
-                    Message = "here",
-                    Data = new Dictionary<string, object> { { "TXN",""} }
-                };
+                return new BaseResponseModel<object>() { StatusCode="TXN",Message=null,Data = "ddata"};
             }
             catch (Exception)
             {
                 throw;
-            }
-            finally
-            {
-
             }
         }
     }
