@@ -9,5 +9,6 @@ namespace MindZoneConsultantAPI.Common
     {
         public const string AddUser = "User";
         public const string UpdateUser = "User/{Id}";
+        public const string Otp = "otp";
     }
 }

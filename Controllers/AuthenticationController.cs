@@ -17,6 +17,10 @@
     /// </summary>
     public class AuthenticationController : BaseController
     {
+        #region Private
+        readonly IAuthentication authentication = new AuthenticationAdapter();
+        #endregion
+
         /// <summary>
         /// api use to add user
         /// </summary>
@@ -28,7 +32,6 @@
         {
             try
             {
-                IAuthentication authentication = new AuthenticationAdapter();
                 var resp = await authentication.AddUser();
 
                 return Ok(resp);
@@ -55,6 +58,22 @@
             catch (Exception ex)
             {
                 ErrorLogger.WriteErrorLog(ex);
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route(Routes.Otp)]
+        public async Task<IHttpActionResult> GetOtp()
+        {
+            try
+            {
+                var resp = await authentication.GetOTP();
+                return Ok(resp);
+            }
+            catch (Exception ex)
+            {
+                ErrorLogger.WriteErrorLog(ex); 
                 return BadRequest(ex.Message);
             }
         }

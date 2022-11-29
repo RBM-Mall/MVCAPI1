@@ -11,5 +11,6 @@
     internal interface IAuthentication
     {
       Task<BaseResponseModel<object>> AddUser();
+      Task<BaseResponseModel<object>> GetOTP();
     }
 }

@@ -10,8 +10,12 @@
     using Newtonsoft.Json.Linq;
 
     using Newtonsoft.Json;
-    public static class Helper
+    public class Helper
     {
-       
+        public static int OtpGenerator()
+        {
+            Random r = new Random();
+            return r.Next(111111, 999999);
+        }
     }
 }
